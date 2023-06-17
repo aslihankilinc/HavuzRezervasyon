@@ -121,15 +121,16 @@ namespace HavuzRezervasyon.Data
             using (SQLiteDataManager sql = new SQLiteDataManager())
             {
                 if (rez == null)
-                    rez = new tblRezervasyon() { RezervasyonId = 0 ,KayitTarih=DateTime.Now.ToShortDate() };
+                    rez = new tblRezervasyon() { RezervasyonId = 0 ,KayitTarih=DateTime.Now.ToShortDate(), GirisTarihi= DateTime.Now.ToShortDate() };
                 sql.DataCommand.Parameters.Add("RezerveId", DbType.Int32).Value = rez.RezervasyonId;
                 sql.DataCommand.Parameters.Add("KayitTarih", DbType.String).Value = rez.KayitTarih;
+                sql.DataCommand.Parameters.Add("GirisTarihi", DbType.String).Value = rez.GirisTarihi;
                 var dr = sql.GetDataReader("Select r.RezerveId,r.GirisTarihi,h.Ad 'HavuzAd',m.AdSoyad,m.Telefon,r.CikisTarihi from tblRezervasyon r " +
                     "inner join tblMusteri m on m.MusteriId=r.MusteriId " +
                      "inner join tblHavuz h on h.HavuzId=r.HavuzId " +
-                    "WHERE r.KayitTarih=@KayitTarih OR (@RezerveId=0 OR RezerveId=@RezerveId)  ");
+                    "WHERE ((@KayitTarih is not null AND r.KayitTarih=@KayitTarih) OR r.GirisTarihi=@GirisTarihi) OR (@RezerveId>0 AND RezerveId=@RezerveId)  ");
 
-                while (dr.Read())
+                while ((bool)(dr?.Read()))
                 {
                     listRez.Add(new tblRezervasyon()
                     {

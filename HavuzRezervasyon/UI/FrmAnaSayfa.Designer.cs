@@ -42,7 +42,7 @@
             this.btnKaydet = new System.Windows.Forms.Button();
             this.dtRezGiris = new System.Windows.Forms.DateTimePicker();
             this.cbMusteri = new System.Windows.Forms.ComboBox();
-            this.dtGunluk = new System.Windows.Forms.DataGridView();
+            this.dgGunluk = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.cbRezHavuz = new System.Windows.Forms.ComboBox();
             this.rezervasyonIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,7 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgRezervasyon)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGunluk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgGunluk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblRezervasyonBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -224,11 +224,11 @@
             this.cbMusteri.Size = new System.Drawing.Size(352, 24);
             this.cbMusteri.TabIndex = 0;
             // 
-            // dtGunluk
+            // dgGunluk
             // 
-            this.dtGunluk.AutoGenerateColumns = false;
-            this.dtGunluk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGunluk.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgGunluk.AutoGenerateColumns = false;
+            this.dgGunluk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgGunluk.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.rezervasyonIdDataGridViewTextBoxColumn1,
             this.musteriIdDataGridViewTextBoxColumn1,
             this.girisTarihiDataGridViewTextBoxColumn1,
@@ -237,14 +237,14 @@
             this.havuzIdDataGridViewTextBoxColumn1,
             this.adSoyadDataGridViewTextBoxColumn1,
             this.havuzAdDataGridViewTextBoxColumn1});
-            this.dtGunluk.DataSource = this.tblRezervasyonBindingSource;
-            this.dtGunluk.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtGunluk.Location = new System.Drawing.Point(993, 193);
-            this.dtGunluk.Name = "dtGunluk";
-            this.dtGunluk.RowHeadersWidth = 51;
-            this.dtGunluk.RowTemplate.Height = 24;
-            this.dtGunluk.Size = new System.Drawing.Size(606, 485);
-            this.dtGunluk.TabIndex = 2;
+            this.dgGunluk.DataSource = this.tblRezervasyonBindingSource;
+            this.dgGunluk.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgGunluk.Location = new System.Drawing.Point(993, 193);
+            this.dgGunluk.Name = "dgGunluk";
+            this.dgGunluk.RowHeadersWidth = 51;
+            this.dgGunluk.RowTemplate.Height = 24;
+            this.dgGunluk.Size = new System.Drawing.Size(606, 485);
+            this.dgGunluk.TabIndex = 2;
             // 
             // label5
             // 
@@ -407,7 +407,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1599, 678);
-            this.Controls.Add(this.dtGunluk);
+            this.Controls.Add(this.dgGunluk);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Name = "FrmAnaSayfa";
@@ -420,7 +420,7 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGunluk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgGunluk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblRezervasyonBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -435,7 +435,7 @@
         private System.Windows.Forms.Button btnListele;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dtGunluk;
+        private System.Windows.Forms.DataGridView dgGunluk;
         private System.Windows.Forms.ComboBox cbMusteri;
         private System.Windows.Forms.Button btnKaydet;
         private System.Windows.Forms.DateTimePicker dtRezGiris;

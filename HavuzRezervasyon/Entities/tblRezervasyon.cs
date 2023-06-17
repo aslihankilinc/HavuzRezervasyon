@@ -13,7 +13,7 @@ namespace HavuzRezervasyon.Entities
         public int MusteriId { get; set; }
         public string GirisTarihi { get; set; } 
         public string CikisTarihi { get; set; }
-        public string KayitTarih { get; set; } = DateTime.Now.ToShortDate();
+        public string KayitTarih { get; set; } 
         public decimal Ucret { get; set; }
         public int HavuzId { get;set; }        
         public string AdSoyad { get; set; }
