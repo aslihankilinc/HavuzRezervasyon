@@ -10,6 +10,6 @@ namespace HavuzRezervasyon.Entities
     {
         public int HavuzId { get; set; } 
         public string Ad { get; set; }
-        public int SaatlikUcret { get; set; }
+        public decimal SaatlikUcret { get; set; }
     }
 }
