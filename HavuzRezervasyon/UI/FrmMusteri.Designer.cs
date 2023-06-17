@@ -85,7 +85,7 @@
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Size = new System.Drawing.Size(91, 40);
             this.btnKaydet.TabIndex = 169;
-            this.btnKaydet.Text = "Oluştur";
+            this.btnKaydet.Text = "Kaydet";
             this.btnKaydet.UseVisualStyleBackColor = false;
             this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
@@ -116,18 +116,19 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 193);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(445, 316);
+            this.panel1.Size = new System.Drawing.Size(705, 316);
             this.panel1.TabIndex = 173;
             // 
             // dgMusteri
             // 
             this.dgMusteri.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgMusteri.ContextMenuStrip = this.contextMenuStrip1;
             this.dgMusteri.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgMusteri.Location = new System.Drawing.Point(0, 0);
             this.dgMusteri.Name = "dgMusteri";
             this.dgMusteri.RowHeadersWidth = 51;
             this.dgMusteri.RowTemplate.Height = 24;
-            this.dgMusteri.Size = new System.Drawing.Size(445, 316);
+            this.dgMusteri.Size = new System.Drawing.Size(705, 316);
             this.dgMusteri.TabIndex = 0;
             // 
             // contextMenuStrip1
@@ -137,7 +138,7 @@
             this.btnDuzenle,
             this.btnSil});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 80);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(133, 52);
             // 
             // btnDuzenle
             // 
@@ -157,7 +158,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(445, 509);
+            this.ClientSize = new System.Drawing.Size(705, 509);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtCep);
             this.Controls.Add(this.dtDogum);

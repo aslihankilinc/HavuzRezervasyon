@@ -71,6 +71,7 @@ namespace HavuzRezervasyon.UI
                 musteriId = row.Cells["MusteriId"].Value.ToInt32();
                 txtAdSoyad.Text = row.Cells["AdSoyad"].Value.ToString();
                 txtCep.Text = row.Cells["Telefon"].Value.ToString();
+                dtDogum.Text = row.Cells["DogumTarih"].Value.ToString();
             }
         }
     }
