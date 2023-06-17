@@ -30,12 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dgRezervasyon = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnIptal = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnCikis = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnGiris = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnListele = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dtGiris = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnMusteriYenile = new System.Windows.Forms.Button();
+            this.cbRezHavuz = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnMusEkle = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,9 +49,7 @@
             this.dtRezGiris = new System.Windows.Forms.DateTimePicker();
             this.cbMusteri = new System.Windows.Forms.ComboBox();
             this.dgGunluk = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cbRezHavuz = new System.Windows.Forms.ComboBox();
-            this.rezervasyonIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgRezervasyon = new System.Windows.Forms.DataGridView();
             this.musteriIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.girisTarihiDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cikisTarihiDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,19 +58,20 @@
             this.adSoyadDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.havuzAdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblRezervasyonBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rezervasyonIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.musteriIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.girisTarihiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cikisTarihiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RezerveId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CikisTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MusteriId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GirisTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ucretDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.havuzIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.adSoyadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HavuzId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.havuzAdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgRezervasyon)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgGunluk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgRezervasyon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblRezervasyonBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,27 +85,36 @@
             this.panel1.Size = new System.Drawing.Size(993, 678);
             this.panel1.TabIndex = 0;
             // 
-            // dgRezervasyon
+            // contextMenuStrip1
             // 
-            this.dgRezervasyon.AutoGenerateColumns = false;
-            this.dgRezervasyon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgRezervasyon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.rezervasyonIdDataGridViewTextBoxColumn,
-            this.musteriIdDataGridViewTextBoxColumn,
-            this.girisTarihiDataGridViewTextBoxColumn,
-            this.cikisTarihiDataGridViewTextBoxColumn,
-            this.ucretDataGridViewTextBoxColumn,
-            this.havuzIdDataGridViewTextBoxColumn,
-            this.adSoyadDataGridViewTextBoxColumn,
-            this.havuzAdDataGridViewTextBoxColumn});
-            this.dgRezervasyon.DataSource = this.tblRezervasyonBindingSource;
-            this.dgRezervasyon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgRezervasyon.Location = new System.Drawing.Point(0, 193);
-            this.dgRezervasyon.Name = "dgRezervasyon";
-            this.dgRezervasyon.RowHeadersWidth = 51;
-            this.dgRezervasyon.RowTemplate.Height = 24;
-            this.dgRezervasyon.Size = new System.Drawing.Size(993, 485);
-            this.dgRezervasyon.TabIndex = 1;
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnIptal,
+            this.btnCikis,
+            this.btnGiris});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(145, 76);
+            // 
+            // btnIptal
+            // 
+            this.btnIptal.Name = "btnIptal";
+            this.btnIptal.Size = new System.Drawing.Size(144, 24);
+            this.btnIptal.Text = "İptal Et";
+            this.btnIptal.Click += new System.EventHandler(this.btnIptal_Click);
+            // 
+            // btnCikis
+            // 
+            this.btnCikis.Name = "btnCikis";
+            this.btnCikis.Size = new System.Drawing.Size(144, 24);
+            this.btnCikis.Text = "Çıkış Ver";
+            this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
+            // 
+            // btnGiris
+            // 
+            this.btnGiris.Name = "btnGiris";
+            this.btnGiris.Size = new System.Drawing.Size(144, 24);
+            this.btnGiris.Text = "Giriş Yaptı";
+            this.btnGiris.Click += new System.EventHandler(this.btnGiris_Click);
             // 
             // panel2
             // 
@@ -148,6 +162,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnMusteriYenile);
             this.panel3.Controls.Add(this.cbRezHavuz);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.btnMusEkle);
@@ -162,10 +177,39 @@
             this.panel3.Size = new System.Drawing.Size(606, 193);
             this.panel3.TabIndex = 1;
             // 
+            // btnMusteriYenile
+            // 
+            this.btnMusteriYenile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnMusteriYenile.Location = new System.Drawing.Point(512, 20);
+            this.btnMusteriYenile.Name = "btnMusteriYenile";
+            this.btnMusteriYenile.Size = new System.Drawing.Size(30, 23);
+            this.btnMusteriYenile.TabIndex = 174;
+            this.btnMusteriYenile.Text = " ▷";
+            this.btnMusteriYenile.UseVisualStyleBackColor = false;
+            this.btnMusteriYenile.Click += new System.EventHandler(this.btnMusteriYenile_Click);
+            // 
+            // cbRezHavuz
+            // 
+            this.cbRezHavuz.FormattingEnabled = true;
+            this.cbRezHavuz.Location = new System.Drawing.Point(117, 103);
+            this.cbRezHavuz.Name = "cbRezHavuz";
+            this.cbRezHavuz.Size = new System.Drawing.Size(352, 24);
+            this.cbRezHavuz.TabIndex = 173;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.2F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(22, 110);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 17);
+            this.label5.TabIndex = 172;
+            this.label5.Text = "Havuz:";
+            // 
             // btnMusEkle
             // 
             this.btnMusEkle.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnMusEkle.Location = new System.Drawing.Point(476, 24);
+            this.btnMusEkle.Location = new System.Drawing.Point(476, 19);
             this.btnMusEkle.Name = "btnMusEkle";
             this.btnMusEkle.Size = new System.Drawing.Size(30, 23);
             this.btnMusEkle.TabIndex = 171;
@@ -209,6 +253,7 @@
             // dtRezGiris
             // 
             this.dtRezGiris.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtRezGiris.CustomFormat = "hh: mm: ss";
             this.dtRezGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.dtRezGiris.Location = new System.Drawing.Point(117, 56);
             this.dtRezGiris.Margin = new System.Windows.Forms.Padding(4);
@@ -229,7 +274,6 @@
             this.dgGunluk.AutoGenerateColumns = false;
             this.dgGunluk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgGunluk.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.rezervasyonIdDataGridViewTextBoxColumn1,
             this.musteriIdDataGridViewTextBoxColumn1,
             this.girisTarihiDataGridViewTextBoxColumn1,
             this.cikisTarihiDataGridViewTextBoxColumn1,
@@ -246,31 +290,28 @@
             this.dgGunluk.Size = new System.Drawing.Size(606, 485);
             this.dgGunluk.TabIndex = 2;
             // 
-            // label5
+            // dgRezervasyon
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.2F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(22, 110);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 17);
-            this.label5.TabIndex = 172;
-            this.label5.Text = "Havuz:";
-            // 
-            // cbRezHavuz
-            // 
-            this.cbRezHavuz.FormattingEnabled = true;
-            this.cbRezHavuz.Location = new System.Drawing.Point(117, 103);
-            this.cbRezHavuz.Name = "cbRezHavuz";
-            this.cbRezHavuz.Size = new System.Drawing.Size(352, 24);
-            this.cbRezHavuz.TabIndex = 173;
-            // 
-            // rezervasyonIdDataGridViewTextBoxColumn1
-            // 
-            this.rezervasyonIdDataGridViewTextBoxColumn1.DataPropertyName = "RezervasyonId";
-            this.rezervasyonIdDataGridViewTextBoxColumn1.HeaderText = "RezervasyonId";
-            this.rezervasyonIdDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.rezervasyonIdDataGridViewTextBoxColumn1.Name = "rezervasyonIdDataGridViewTextBoxColumn1";
-            this.rezervasyonIdDataGridViewTextBoxColumn1.Width = 125;
+            this.dgRezervasyon.AutoGenerateColumns = false;
+            this.dgRezervasyon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgRezervasyon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RezerveId,
+            this.CikisTarihi,
+            this.MusteriId,
+            this.GirisTarihi,
+            this.ucretDataGridViewTextBoxColumn,
+            this.adSoyadDataGridViewTextBoxColumn,
+            this.HavuzId,
+            this.havuzAdDataGridViewTextBoxColumn});
+            this.dgRezervasyon.ContextMenuStrip = this.contextMenuStrip1;
+            this.dgRezervasyon.DataSource = this.tblRezervasyonBindingSource;
+            this.dgRezervasyon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgRezervasyon.Location = new System.Drawing.Point(0, 193);
+            this.dgRezervasyon.Name = "dgRezervasyon";
+            this.dgRezervasyon.RowHeadersWidth = 51;
+            this.dgRezervasyon.RowTemplate.Height = 24;
+            this.dgRezervasyon.Size = new System.Drawing.Size(993, 485);
+            this.dgRezervasyon.TabIndex = 1;
             // 
             // musteriIdDataGridViewTextBoxColumn1
             // 
@@ -336,38 +377,40 @@
             // 
             this.tblRezervasyonBindingSource.DataSource = typeof(HavuzRezervasyon.Entities.tblRezervasyon);
             // 
-            // rezervasyonIdDataGridViewTextBoxColumn
+            // RezerveId
             // 
-            this.rezervasyonIdDataGridViewTextBoxColumn.DataPropertyName = "RezervasyonId";
-            this.rezervasyonIdDataGridViewTextBoxColumn.HeaderText = "RezervasyonId";
-            this.rezervasyonIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.rezervasyonIdDataGridViewTextBoxColumn.Name = "rezervasyonIdDataGridViewTextBoxColumn";
-            this.rezervasyonIdDataGridViewTextBoxColumn.Width = 125;
+            this.RezerveId.DataPropertyName = "RezerveId";
+            this.RezerveId.HeaderText = "Id";
+            this.RezerveId.MinimumWidth = 6;
+            this.RezerveId.Name = "RezerveId";
+            this.RezerveId.ReadOnly = true;
+            this.RezerveId.Width = 125;
             // 
-            // musteriIdDataGridViewTextBoxColumn
+            // CikisTarihi
             // 
-            this.musteriIdDataGridViewTextBoxColumn.DataPropertyName = "MusteriId";
-            this.musteriIdDataGridViewTextBoxColumn.HeaderText = "MusteriId";
-            this.musteriIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.musteriIdDataGridViewTextBoxColumn.Name = "musteriIdDataGridViewTextBoxColumn";
-            this.musteriIdDataGridViewTextBoxColumn.Visible = false;
-            this.musteriIdDataGridViewTextBoxColumn.Width = 125;
+            this.CikisTarihi.DataPropertyName = "CikisTarihi";
+            this.CikisTarihi.HeaderText = "CikisTarihi";
+            this.CikisTarihi.MinimumWidth = 6;
+            this.CikisTarihi.Name = "CikisTarihi";
+            this.CikisTarihi.Width = 125;
             // 
-            // girisTarihiDataGridViewTextBoxColumn
+            // MusteriId
             // 
-            this.girisTarihiDataGridViewTextBoxColumn.DataPropertyName = "GirisTarihi";
-            this.girisTarihiDataGridViewTextBoxColumn.HeaderText = "GirisTarihi";
-            this.girisTarihiDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.girisTarihiDataGridViewTextBoxColumn.Name = "girisTarihiDataGridViewTextBoxColumn";
-            this.girisTarihiDataGridViewTextBoxColumn.Width = 125;
+            this.MusteriId.DataPropertyName = "MusteriId";
+            this.MusteriId.HeaderText = "MusteriId";
+            this.MusteriId.MinimumWidth = 6;
+            this.MusteriId.Name = "MusteriId";
+            this.MusteriId.ReadOnly = true;
+            this.MusteriId.Width = 125;
             // 
-            // cikisTarihiDataGridViewTextBoxColumn
+            // GirisTarihi
             // 
-            this.cikisTarihiDataGridViewTextBoxColumn.DataPropertyName = "CikisTarihi";
-            this.cikisTarihiDataGridViewTextBoxColumn.HeaderText = "CikisTarihi";
-            this.cikisTarihiDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.cikisTarihiDataGridViewTextBoxColumn.Name = "cikisTarihiDataGridViewTextBoxColumn";
-            this.cikisTarihiDataGridViewTextBoxColumn.Width = 125;
+            this.GirisTarihi.DataPropertyName = "GirisTarihi";
+            this.GirisTarihi.HeaderText = "GirisTarihi";
+            this.GirisTarihi.MinimumWidth = 6;
+            this.GirisTarihi.Name = "GirisTarihi";
+            this.GirisTarihi.ReadOnly = true;
+            this.GirisTarihi.Width = 125;
             // 
             // ucretDataGridViewTextBoxColumn
             // 
@@ -377,15 +420,6 @@
             this.ucretDataGridViewTextBoxColumn.Name = "ucretDataGridViewTextBoxColumn";
             this.ucretDataGridViewTextBoxColumn.Width = 125;
             // 
-            // havuzIdDataGridViewTextBoxColumn
-            // 
-            this.havuzIdDataGridViewTextBoxColumn.DataPropertyName = "HavuzId";
-            this.havuzIdDataGridViewTextBoxColumn.HeaderText = "HavuzId";
-            this.havuzIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.havuzIdDataGridViewTextBoxColumn.Name = "havuzIdDataGridViewTextBoxColumn";
-            this.havuzIdDataGridViewTextBoxColumn.Visible = false;
-            this.havuzIdDataGridViewTextBoxColumn.Width = 125;
-            // 
             // adSoyadDataGridViewTextBoxColumn
             // 
             this.adSoyadDataGridViewTextBoxColumn.DataPropertyName = "AdSoyad";
@@ -393,6 +427,16 @@
             this.adSoyadDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.adSoyadDataGridViewTextBoxColumn.Name = "adSoyadDataGridViewTextBoxColumn";
             this.adSoyadDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // HavuzId
+            // 
+            this.HavuzId.DataPropertyName = "HavuzId";
+            this.HavuzId.HeaderText = "HavuzId";
+            this.HavuzId.MinimumWidth = 6;
+            this.HavuzId.Name = "HavuzId";
+            this.HavuzId.ReadOnly = true;
+            this.HavuzId.Visible = false;
+            this.HavuzId.Width = 125;
             // 
             // havuzAdDataGridViewTextBoxColumn
             // 
@@ -415,12 +459,13 @@
             this.Text = "Ana Sayfa";
             this.Load += new System.EventHandler(this.FrmAnaSayfa_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgRezervasyon)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgGunluk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgRezervasyon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblRezervasyonBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -429,7 +474,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dgRezervasyon;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DateTimePicker dtGiris;
         private System.Windows.Forms.Button btnListele;
@@ -444,16 +488,9 @@
         private System.Windows.Forms.Button btnMusEkle;
         private System.Windows.Forms.ComboBox cbRezHavuz;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rezervasyonIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn musteriIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn girisTarihiDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cikisTarihiDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ucretDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn havuzIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn adSoyadDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn havuzAdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RezerveIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource tblRezervasyonBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rezervasyonIdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RezerveIdDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn musteriIdDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn girisTarihiDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn cikisTarihiDataGridViewTextBoxColumn1;
@@ -461,5 +498,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn havuzIdDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn adSoyadDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn havuzAdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Button btnMusteriYenile;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem btnIptal;
+        private System.Windows.Forms.ToolStripMenuItem btnCikis;
+        private System.Windows.Forms.ToolStripMenuItem btnGiris;
+        private System.Windows.Forms.DataGridView dgRezervasyon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RezerveId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CikisTarihi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MusteriId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GirisTarihi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ucretDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn adSoyadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HavuzId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn havuzAdDataGridViewTextBoxColumn;
     }
 }

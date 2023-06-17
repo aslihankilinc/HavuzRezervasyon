@@ -9,7 +9,7 @@ namespace HavuzRezervasyon.Entities
 {
     public class tblRezervasyon
     {
-        public int RezervasyonId { get;set; }
+        public int RezerveId { get;set; }
         public int MusteriId { get; set; }
         public string GirisTarihi { get; set; } 
         public string CikisTarihi { get; set; }
