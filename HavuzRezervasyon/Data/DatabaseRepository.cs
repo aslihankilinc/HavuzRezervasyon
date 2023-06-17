@@ -90,5 +90,82 @@ namespace HavuzRezervasyon.Data
                 return sql.RunCommand(query) > 0;
             }
         }
+
+        public static bool RezervasyonEkle(tblRezervasyon rez)
+        {
+
+            using (SQLiteDataManager sql = new SQLiteDataManager())
+            {
+                string query = @"insert into [tblRezervasyon]
+                                   (
+                                    [MusteriId]
+                                   ,[GirisTarihi]
+                                   ,[HavuzId])
+                                 VALUES(@MusteriId,@GirisTarihi, @HavuzId)";
+                if (rez.RezervasyonId> 0)
+                    query = @"UPDATE [tblRezervasyon] SET [MusteriId] =@MusteriId, [GirisTarihi] =@GirisTarihi,[HavuzId] =@HavuzId,[CikisTarihi]=@CikisTarihi,[Ucret]=@Ucret WHERE RezerveId=@RezervasyonId";
+                sql.DataCommand.Parameters.Add("MusteriId", DbType.Int32).Value = rez.MusteriId;
+                sql.DataCommand.Parameters.Add("GirisTarihi", DbType.String).Value = rez.GirisTarihi.GetNullOrValue();
+                sql.DataCommand.Parameters.Add("HavuzId", DbType.Int32).Value = rez.HavuzId;
+                sql.DataCommand.Parameters.Add("CikisTarihi", DbType.String).Value = rez.CikisTarihi;
+                sql.DataCommand.Parameters.Add("Ucret", DbType.Decimal).Value = rez.Ucret;
+                return sql.RunCommand(query) > 0;
+            }
+        }
+
+        public static List<tblRezervasyon> ListRez(tblRezervasyon rez)
+        {
+            var listRez= new List<tblRezervasyon>();
+            using (SQLiteDataManager sql = new SQLiteDataManager())
+            {
+                if (rez == null)
+                    rez = new tblRezervasyon() { RezervasyonId = 0 };
+                sql.DataCommand.Parameters.Add("RezerveId", DbType.Int32).Value = rez.RezervasyonId;
+                var dr = sql.GetDataReader("Select r.RezerveId,r.GirisTarihi,h.Ad 'HavuzAd',m.AdSoyad,m.Telefon,r.CikisTarihi from tblRezervasyon r " +
+                    "inner join tblMusteri m on m.MusteriId=r.MusteriId " +
+                     "inner join tblHavuz h on h.HavuzId=r.HavuzId " +
+                    "WHERE (@RezerveId=0 OR RezerveId=@RezerveId)");
+
+                while (dr.Read())
+                {
+                    listRez.Add(new tblRezervasyon()
+                    {
+                        RezervasyonId = dr["RezerveId"].ToInt32(),
+                        GirisTarihi = dr["GirisTarihi"].ToString(),
+                        CikisTarihi = dr["CikisTarihi"].ToString(),
+                        HavuzAd = dr["HavuzAd"].ToString(),
+                        AdSoyad= dr["AdSoyad"].ToString(),
+                        Telefon= dr["Telefon"].ToString(),
+                    });
+                }
+
+            }
+            return listRez;
+
+        }
+
+        public static List<tblHavuz> ListHavuz(tblHavuz Havuz)
+        {
+           var listHavuz = new List<tblHavuz>();
+            using (SQLiteDataManager sql = new SQLiteDataManager())
+            {
+                if (Havuz == null)
+                    Havuz = new tblHavuz() { HavuzId = 0 };
+              sql.DataCommand.Parameters.Add("HavuzId", DbType.Int32).Value = Havuz.HavuzId;
+                var dr = sql.GetDataReader("Select * from tblHavuz WHERE (@HavuzId=0 OR HavuzId=@HavuzId)");
+
+                while (dr.Read())
+                {
+                    listHavuz.Add(new tblHavuz()
+    {
+                        HavuzId = dr["HavuzId"].ToInt32(),
+                        Ad = dr["Ad"].ToString(),
+                        SaatlikUcret = dr["SaatlikUcret"].ToDecimal(),
+                    });
+                }
+
+            }
+            return listHavuz;
+        }
     }
 }

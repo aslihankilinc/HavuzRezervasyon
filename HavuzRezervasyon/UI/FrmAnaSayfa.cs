@@ -1,4 +1,5 @@
 ﻿using HavuzRezervasyon.Data;
+using HavuzRezervasyon.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,8 @@ namespace HavuzRezervasyon.UI
         private void FrmAnaSayfa_Load(object sender, EventArgs e)
         {
             YukleMusteri();
+            YukleHavuz();
+            YukleRezervasyon();
         }
 
         private void btnMusEkle_Click(object sender, EventArgs e)
@@ -39,8 +42,37 @@ namespace HavuzRezervasyon.UI
         }
         public void YukleRezervasyon()
         {
+            var rezList = DatabaseRepository.ListRez(new Entities.tblRezervasyon());
+            dgRezervasyon.DataSource = rezList;
+        }
+        public void YukleHavuz()
+        {
+            var havuzList = DatabaseRepository.ListHavuz(new Entities.tblHavuz());
+            cbHavuz.DataSource = havuzList;
+            cbHavuz.DisplayMember = "Ad";
+            cbHavuz.ValueMember = "HavuzId";
+            cbRezHavuz.DataSource = havuzList;
+            cbRezHavuz.DisplayMember = "Ad";
+            cbRezHavuz.ValueMember = "HavuzId";
         }
 
         #endregion
+
+        private void btnKaydet_Click(object sender, EventArgs e)
+        {
+
+            if (Convert.ToDateTime(dtRezGiris.Text) >= DateTime.Now)
+            {
+                var musteri = (int)cbMusteri.SelectedValue;
+                var havuz = (int)cbRezHavuz.SelectedValue;
+                if (DatabaseRepository.RezervasyonEkle(new Entities.tblRezervasyon { HavuzId = havuz, GirisTarihi = dtRezGiris.Text, MusteriId = musteri }))
+                {
+                    MessageBox.Show("İşleminiz gerçekleştirildi");
+                    this.Close();
+                }
+                else MessageBox.Show("Kayıt işlemi gerçekleştirilemedi");
+            }
+            else MessageBox.Show("Kayıt işlemi gerçekleştirilemedi");
+        }
     }
 }
