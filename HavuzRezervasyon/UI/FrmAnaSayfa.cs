@@ -16,5 +16,15 @@ namespace HavuzRezervasyon.UI
         {
             InitializeComponent();
         }
+
+        private void FrmAnaSayfa_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMusEkle_Click(object sender, EventArgs e)
+        {
+            new FrmMusteri().ShowDialog();
+        }
     }
 }

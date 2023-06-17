@@ -32,5 +32,25 @@ namespace HavuzRezervasyon.Data
             }
             return Kullanici._Kullanici != null;
         }
+
+        public static bool MusteriEkle(tblMusteri musteri)
+        {
+
+            using (SQLiteDataManager sql = new SQLiteDataManager())
+            {
+                string query = @"insert into [tblMusteri]
+                                   ([AdSoyad]
+                                   ,[DogumTarih]
+                                   ,[Telefon])
+                                 VALUES(@AdSoyad,@DogumTarih, @Telefon)";
+                if (musteri.MusteriId > 0)
+                    query = @"UPDATE [tblMusteri] SET [Telefon] =@Telefon, [AdSoyad] =@AdSoyad,[DogumTarih] =@DogumTarih WHERE MusteriId=@MusteriId";
+                sql.DataCommand.Parameters.Add("MusteriId", DbType.Int32).Value = musteri.MusteriId;
+                sql.DataCommand.Parameters.Add("AdSoyad", DbType.String).Value = musteri.AdSoyad.GetNullOrValue();
+                sql.DataCommand.Parameters.Add("DogumTarih", DbType.String).Value = musteri.DogumTarih.GetNullOrValue();
+                sql.DataCommand.Parameters.Add("Telefon", DbType.String).Value = musteri.Telefon;
+                return sql.RunCommand(query) > 0;
+            }
+        }
     }
 }

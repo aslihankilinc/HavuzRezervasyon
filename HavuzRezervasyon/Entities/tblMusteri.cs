@@ -11,6 +11,7 @@ namespace HavuzRezervasyon.Entities
         public int MusteriId{ get; set; }
         public string AdSoyad { get; set; }
         public string DogumTarih { get;set; }
+        public string Telefon { get; set; }
         public int UyeMi { get; set; } = 0;
     }
 }
