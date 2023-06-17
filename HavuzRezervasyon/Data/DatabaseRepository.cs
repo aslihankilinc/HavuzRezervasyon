@@ -52,5 +52,43 @@ namespace HavuzRezervasyon.Data
                 return sql.RunCommand(query) > 0;
             }
         }
+
+        public static List<tblMusteri> ListMusteri(tblMusteri musteri)
+        {
+            var listMusteri = new List<tblMusteri>();
+            using (SQLiteDataManager sql = new SQLiteDataManager())
+            {
+                if (musteri == null)
+                    musteri = new tblMusteri() { MusteriId = 0 };
+                sql.DataCommand.Parameters.Add("MusteriId", DbType.Int32).Value = musteri.MusteriId;
+                var dr = sql.GetDataReader("Select * from tblMusteri WHERE (@MusteriId=0 OR MusteriId=@MusteriId)");
+
+                while (dr.Read())
+                {
+                    listMusteri.Add(new tblMusteri()
+                    {
+                        MusteriId = dr["MusteriId"].ToInt32(),
+                        AdSoyad = dr["AdSoyad"].ToString(),
+                        Telefon = dr["Telefon"].ToString(),
+                        DogumTarih = dr["DogumTarih"].ToString()
+                    });
+                }
+
+            }
+            return listMusteri;
+
+        }
+
+        public static bool SilMusteri(tblMusteri musteri)
+        {
+            using (SQLiteDataManager sql = new SQLiteDataManager())
+            {
+                string query = "";
+                if (musteri.MusteriId > 0)
+                    query = @"Delete From [tblMusteri] WHERE MusteriId=@MusteriId";
+                sql.DataCommand.Parameters.Add("MusteriId", DbType.Int32).Value = musteri.MusteriId;
+                return sql.RunCommand(query) > 0;
+            }
+        }
     }
 }

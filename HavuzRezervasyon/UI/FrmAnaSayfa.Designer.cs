@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.dgRezervasyon = new System.Windows.Forms.DataGridView();
-            this.dtGiris = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbHavuz = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.btnListele = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbHavuz = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtGiris = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dtGunluk = new System.Windows.Forms.DataGridView();
-            this.cbMusteri = new System.Windows.Forms.ComboBox();
-            this.dtRezGiris = new System.Windows.Forms.DateTimePicker();
-            this.btnKaydet = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnMusEkle = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnKaydet = new System.Windows.Forms.Button();
+            this.dtRezGiris = new System.Windows.Forms.DateTimePicker();
+            this.cbMusteri = new System.Windows.Forms.ComboBox();
+            this.dtGunluk = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgRezervasyon)).BeginInit();
+            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGunluk)).BeginInit();
             this.SuspendLayout();
@@ -61,6 +61,17 @@
             this.panel1.Size = new System.Drawing.Size(613, 517);
             this.panel1.TabIndex = 0;
             // 
+            // dgRezervasyon
+            // 
+            this.dgRezervasyon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgRezervasyon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgRezervasyon.Location = new System.Drawing.Point(0, 133);
+            this.dgRezervasyon.Name = "dgRezervasyon";
+            this.dgRezervasyon.RowHeadersWidth = 51;
+            this.dgRezervasyon.RowTemplate.Height = 24;
+            this.dgRezervasyon.Size = new System.Drawing.Size(613, 384);
+            this.dgRezervasyon.TabIndex = 1;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnListele);
@@ -74,55 +85,6 @@
             this.panel2.Size = new System.Drawing.Size(613, 133);
             this.panel2.TabIndex = 0;
             // 
-            // dgRezervasyon
-            // 
-            this.dgRezervasyon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgRezervasyon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgRezervasyon.Location = new System.Drawing.Point(0, 133);
-            this.dgRezervasyon.Name = "dgRezervasyon";
-            this.dgRezervasyon.RowHeadersWidth = 51;
-            this.dgRezervasyon.RowTemplate.Height = 24;
-            this.dgRezervasyon.Size = new System.Drawing.Size(613, 384);
-            this.dgRezervasyon.TabIndex = 1;
-            // 
-            // dtGiris
-            // 
-            this.dtGiris.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.dtGiris.Location = new System.Drawing.Point(98, 19);
-            this.dtGiris.Margin = new System.Windows.Forms.Padding(4);
-            this.dtGiris.Name = "dtGiris";
-            this.dtGiris.Size = new System.Drawing.Size(330, 26);
-            this.dtGiris.TabIndex = 163;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.2F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(27, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 17);
-            this.label1.TabIndex = 164;
-            this.label1.Text = "Tarih :";
-            // 
-            // cbHavuz
-            // 
-            this.cbHavuz.FormattingEnabled = true;
-            this.cbHavuz.Location = new System.Drawing.Point(98, 57);
-            this.cbHavuz.Name = "cbHavuz";
-            this.cbHavuz.Size = new System.Drawing.Size(330, 24);
-            this.cbHavuz.TabIndex = 165;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.2F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(18, 57);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 17);
-            this.label2.TabIndex = 166;
-            this.label2.Text = "Havuz :";
-            // 
             // btnListele
             // 
             this.btnListele.BackColor = System.Drawing.Color.Maroon;
@@ -134,6 +96,44 @@
             this.btnListele.TabIndex = 167;
             this.btnListele.Text = "Listele";
             this.btnListele.UseVisualStyleBackColor = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.2F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(18, 57);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 17);
+            this.label2.TabIndex = 166;
+            this.label2.Text = "Havuz :";
+            // 
+            // cbHavuz
+            // 
+            this.cbHavuz.FormattingEnabled = true;
+            this.cbHavuz.Location = new System.Drawing.Point(98, 57);
+            this.cbHavuz.Name = "cbHavuz";
+            this.cbHavuz.Size = new System.Drawing.Size(330, 24);
+            this.cbHavuz.TabIndex = 165;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.2F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(27, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 17);
+            this.label1.TabIndex = 164;
+            this.label1.Text = "Tarih :";
+            // 
+            // dtGiris
+            // 
+            this.dtGiris.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.dtGiris.Location = new System.Drawing.Point(98, 19);
+            this.dtGiris.Margin = new System.Windows.Forms.Padding(4);
+            this.dtGiris.Name = "dtGiris";
+            this.dtGiris.Size = new System.Drawing.Size(330, 26);
+            this.dtGiris.TabIndex = 163;
             // 
             // panel3
             // 
@@ -149,34 +149,36 @@
             this.panel3.Size = new System.Drawing.Size(542, 133);
             this.panel3.TabIndex = 1;
             // 
-            // dtGunluk
+            // btnMusEkle
             // 
-            this.dtGunluk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGunluk.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtGunluk.Location = new System.Drawing.Point(613, 133);
-            this.dtGunluk.Name = "dtGunluk";
-            this.dtGunluk.RowHeadersWidth = 51;
-            this.dtGunluk.RowTemplate.Height = 24;
-            this.dtGunluk.Size = new System.Drawing.Size(542, 384);
-            this.dtGunluk.TabIndex = 2;
+            this.btnMusEkle.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnMusEkle.Location = new System.Drawing.Point(476, 19);
+            this.btnMusEkle.Name = "btnMusEkle";
+            this.btnMusEkle.Size = new System.Drawing.Size(30, 23);
+            this.btnMusEkle.TabIndex = 171;
+            this.btnMusEkle.Text = "+";
+            this.btnMusEkle.UseVisualStyleBackColor = false;
+            this.btnMusEkle.Click += new System.EventHandler(this.btnMusEkle_Click);
             // 
-            // cbMusteri
+            // label4
             // 
-            this.cbMusteri.FormattingEnabled = true;
-            this.cbMusteri.Location = new System.Drawing.Point(117, 19);
-            this.cbMusteri.Name = "cbMusteri";
-            this.cbMusteri.Size = new System.Drawing.Size(352, 24);
-            this.cbMusteri.TabIndex = 0;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.2F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(22, 63);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 17);
+            this.label4.TabIndex = 170;
+            this.label4.Text = "Rez. Tarih:";
             // 
-            // dtRezGiris
+            // label3
             // 
-            this.dtRezGiris.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtRezGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.dtRezGiris.Location = new System.Drawing.Point(117, 57);
-            this.dtRezGiris.Margin = new System.Windows.Forms.Padding(4);
-            this.dtRezGiris.Name = "dtRezGiris";
-            this.dtRezGiris.Size = new System.Drawing.Size(352, 26);
-            this.dtRezGiris.TabIndex = 164;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.2F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(22, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 17);
+            this.label3.TabIndex = 169;
+            this.label3.Text = "Müşteri :";
             // 
             // btnKaydet
             // 
@@ -190,36 +192,34 @@
             this.btnKaydet.Text = "Oluştur";
             this.btnKaydet.UseVisualStyleBackColor = false;
             // 
-            // label3
+            // dtRezGiris
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.2F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(22, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 17);
-            this.label3.TabIndex = 169;
-            this.label3.Text = "Müşteri :";
+            this.dtRezGiris.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtRezGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.dtRezGiris.Location = new System.Drawing.Point(117, 57);
+            this.dtRezGiris.Margin = new System.Windows.Forms.Padding(4);
+            this.dtRezGiris.Name = "dtRezGiris";
+            this.dtRezGiris.Size = new System.Drawing.Size(352, 26);
+            this.dtRezGiris.TabIndex = 164;
             // 
-            // label4
+            // cbMusteri
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.2F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(22, 63);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 17);
-            this.label4.TabIndex = 170;
-            this.label4.Text = "Rez. Tarih:";
+            this.cbMusteri.FormattingEnabled = true;
+            this.cbMusteri.Location = new System.Drawing.Point(117, 19);
+            this.cbMusteri.Name = "cbMusteri";
+            this.cbMusteri.Size = new System.Drawing.Size(352, 24);
+            this.cbMusteri.TabIndex = 0;
             // 
-            // btnMusEkle
+            // dtGunluk
             // 
-            this.btnMusEkle.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnMusEkle.Location = new System.Drawing.Point(476, 19);
-            this.btnMusEkle.Name = "btnMusEkle";
-            this.btnMusEkle.Size = new System.Drawing.Size(30, 23);
-            this.btnMusEkle.TabIndex = 171;
-            this.btnMusEkle.Text = "+";
-            this.btnMusEkle.UseVisualStyleBackColor = false;
-            this.btnMusEkle.Click += new System.EventHandler(this.btnMusEkle_Click);
+            this.dtGunluk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGunluk.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtGunluk.Location = new System.Drawing.Point(613, 133);
+            this.dtGunluk.Name = "dtGunluk";
+            this.dtGunluk.RowHeadersWidth = 51;
+            this.dtGunluk.RowTemplate.Height = 24;
+            this.dtGunluk.Size = new System.Drawing.Size(542, 384);
+            this.dtGunluk.TabIndex = 2;
             // 
             // FrmAnaSayfa
             // 
@@ -230,12 +230,13 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Name = "FrmAnaSayfa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ana Sayfa";
             this.Load += new System.EventHandler(this.FrmAnaSayfa_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgRezervasyon)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgRezervasyon)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGunluk)).EndInit();

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -35,6 +36,14 @@
             this.txtAdSoyad = new System.Windows.Forms.TextBox();
             this.dtDogum = new System.Windows.Forms.DateTimePicker();
             this.txtCep = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dgMusteri = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnDuzenle = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSil = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgMusteri)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -101,11 +110,55 @@
             this.txtCep.Size = new System.Drawing.Size(248, 22);
             this.txtCep.TabIndex = 172;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dgMusteri);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 193);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(445, 316);
+            this.panel1.TabIndex = 173;
+            // 
+            // dgMusteri
+            // 
+            this.dgMusteri.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgMusteri.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgMusteri.Location = new System.Drawing.Point(0, 0);
+            this.dgMusteri.Name = "dgMusteri";
+            this.dgMusteri.RowHeadersWidth = 51;
+            this.dgMusteri.RowTemplate.Height = 24;
+            this.dgMusteri.Size = new System.Drawing.Size(445, 316);
+            this.dgMusteri.TabIndex = 0;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnDuzenle,
+            this.btnSil});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 80);
+            // 
+            // btnDuzenle
+            // 
+            this.btnDuzenle.Name = "btnDuzenle";
+            this.btnDuzenle.Size = new System.Drawing.Size(210, 24);
+            this.btnDuzenle.Text = "Düzenle";
+            this.btnDuzenle.Click += new System.EventHandler(this.btnDuzenle_Click);
+            // 
+            // btnSil
+            // 
+            this.btnSil.Name = "btnSil";
+            this.btnSil.Size = new System.Drawing.Size(210, 24);
+            this.btnSil.Text = "Sil";
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
+            // 
             // FrmMusteri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(445, 186);
+            this.ClientSize = new System.Drawing.Size(445, 509);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtCep);
             this.Controls.Add(this.dtDogum);
             this.Controls.Add(this.txtAdSoyad);
@@ -114,7 +167,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmMusteri";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Müşteri Kartı";
+            this.Load += new System.EventHandler(this.FrmMusteri_Load);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgMusteri)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,5 +187,10 @@
         private System.Windows.Forms.TextBox txtAdSoyad;
         private System.Windows.Forms.DateTimePicker dtDogum;
         private System.Windows.Forms.TextBox txtCep;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dgMusteri;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem btnDuzenle;
+        private System.Windows.Forms.ToolStripMenuItem btnSil;
     }
 }

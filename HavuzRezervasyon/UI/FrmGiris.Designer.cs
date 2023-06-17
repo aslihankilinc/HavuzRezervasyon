@@ -93,6 +93,7 @@
             this.txtKulAd.Name = "txtKulAd";
             this.txtKulAd.Size = new System.Drawing.Size(249, 26);
             this.txtKulAd.TabIndex = 14;
+            this.txtKulAd.Text = "harun";
             // 
             // lblSifre
             // 
@@ -130,6 +131,7 @@
             this.txtSifre.PasswordChar = '•';
             this.txtSifre.Size = new System.Drawing.Size(249, 26);
             this.txtSifre.TabIndex = 17;
+            this.txtSifre.Text = "0";
             this.txtSifre.UseSystemPasswordChar = true;
             // 
             // btnGiris
@@ -160,6 +162,7 @@
             this.Controls.Add(this.lblSlogan);
             this.Controls.Add(this.picGiris);
             this.Name = "FrmGiris";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmGiris";
             ((System.ComponentModel.ISupportInitialize)(this.picGiris)).EndInit();
             this.giris.ResumeLayout(false);
