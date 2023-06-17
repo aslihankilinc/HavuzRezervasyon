@@ -48,9 +48,7 @@ namespace HavuzRezervasyon.UI
         public void YukleHavuz()
         {
             var havuzList = DatabaseRepository.ListHavuz(new Entities.tblHavuz());
-            cbHavuz.DataSource = havuzList;
-            cbHavuz.DisplayMember = "Ad";
-            cbHavuz.ValueMember = "HavuzId";
+          
             cbRezHavuz.DataSource = havuzList;
             cbRezHavuz.DisplayMember = "Ad";
             cbRezHavuz.ValueMember = "HavuzId";
@@ -73,6 +71,12 @@ namespace HavuzRezervasyon.UI
                 else MessageBox.Show("Kayıt işlemi gerçekleştirilemedi");
             }
             else MessageBox.Show("Kayıt işlemi gerçekleştirilemedi");
+        }
+
+        private void btnListele_Click(object sender, EventArgs e)
+        {
+            var rezList = DatabaseRepository.ListRez(new Entities.tblRezervasyon() { KayitTarih=dtGiris.ToShortDate()});
+            dgRezervasyon.DataSource = rezList;
         }
     }
 }

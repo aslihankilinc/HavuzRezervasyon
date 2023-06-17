@@ -100,11 +100,13 @@ namespace HavuzRezervasyon.Data
                                    (
                                     [MusteriId]
                                    ,[GirisTarihi]
-                                   ,[HavuzId])
-                                 VALUES(@MusteriId,@GirisTarihi, @HavuzId)";
+                                   ,[HavuzId]
+                                   ,[KayitTarih])
+                                 VALUES(@MusteriId,@GirisTarihi, @HavuzId,@KayitTarih)";
                 if (rez.RezervasyonId> 0)
                     query = @"UPDATE [tblRezervasyon] SET [MusteriId] =@MusteriId, [GirisTarihi] =@GirisTarihi,[HavuzId] =@HavuzId,[CikisTarihi]=@CikisTarihi,[Ucret]=@Ucret WHERE RezerveId=@RezervasyonId";
                 sql.DataCommand.Parameters.Add("MusteriId", DbType.Int32).Value = rez.MusteriId;
+                sql.DataCommand.Parameters.Add("KayitTarih", DbType.String).Value = DateTime.Now.ToShortDate();
                 sql.DataCommand.Parameters.Add("GirisTarihi", DbType.String).Value = rez.GirisTarihi.GetNullOrValue();
                 sql.DataCommand.Parameters.Add("HavuzId", DbType.Int32).Value = rez.HavuzId;
                 sql.DataCommand.Parameters.Add("CikisTarihi", DbType.String).Value = rez.CikisTarihi;
@@ -119,12 +121,13 @@ namespace HavuzRezervasyon.Data
             using (SQLiteDataManager sql = new SQLiteDataManager())
             {
                 if (rez == null)
-                    rez = new tblRezervasyon() { RezervasyonId = 0 };
+                    rez = new tblRezervasyon() { RezervasyonId = 0 ,KayitTarih=DateTime.Now.ToShortDate() };
                 sql.DataCommand.Parameters.Add("RezerveId", DbType.Int32).Value = rez.RezervasyonId;
+                sql.DataCommand.Parameters.Add("KayitTarih", DbType.String).Value = rez.KayitTarih;
                 var dr = sql.GetDataReader("Select r.RezerveId,r.GirisTarihi,h.Ad 'HavuzAd',m.AdSoyad,m.Telefon,r.CikisTarihi from tblRezervasyon r " +
                     "inner join tblMusteri m on m.MusteriId=r.MusteriId " +
                      "inner join tblHavuz h on h.HavuzId=r.HavuzId " +
-                    "WHERE (@RezerveId=0 OR RezerveId=@RezerveId)");
+                    "WHERE r.KayitTarih=@KayitTarih OR (@RezerveId=0 OR RezerveId=@RezerveId)  ");
 
                 while (dr.Read())
                 {

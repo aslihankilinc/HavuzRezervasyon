@@ -33,8 +33,6 @@
             this.dgRezervasyon = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnListele = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbHavuz = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dtGiris = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -107,8 +105,6 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.btnListele);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.cbHavuz);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.dtGiris);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -122,30 +118,13 @@
             this.btnListele.BackColor = System.Drawing.Color.Maroon;
             this.btnListele.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.2F, System.Drawing.FontStyle.Bold);
             this.btnListele.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnListele.Location = new System.Drawing.Point(337, 87);
+            this.btnListele.Location = new System.Drawing.Point(337, 63);
             this.btnListele.Name = "btnListele";
             this.btnListele.Size = new System.Drawing.Size(91, 40);
             this.btnListele.TabIndex = 167;
             this.btnListele.Text = "Listele";
             this.btnListele.UseVisualStyleBackColor = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.2F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(18, 57);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 17);
-            this.label2.TabIndex = 166;
-            this.label2.Text = "Havuz :";
-            // 
-            // cbHavuz
-            // 
-            this.cbHavuz.FormattingEnabled = true;
-            this.cbHavuz.Location = new System.Drawing.Point(98, 57);
-            this.cbHavuz.Name = "cbHavuz";
-            this.cbHavuz.Size = new System.Drawing.Size(330, 24);
-            this.cbHavuz.TabIndex = 165;
+            this.btnListele.Click += new System.EventHandler(this.btnListele_Click);
             // 
             // label1
             // 
@@ -454,8 +433,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DateTimePicker dtGiris;
         private System.Windows.Forms.Button btnListele;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbHavuz;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dtGunluk;
